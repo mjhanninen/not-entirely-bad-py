@@ -58,7 +58,7 @@ $ which pip
 ```
 
 Compile the dependencies requirements. (Although there is no need to this as
-the `requirements.txt` should already be up-to-date):
+the `requirements.txt` file should already be up-to-date):
 
 ```console
 $ pip-compile
