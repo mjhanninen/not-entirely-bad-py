@@ -5,15 +5,16 @@ This is a skeleton for Python project.  For my personal reference mostly.
 ## Features
 
 - Requires only Python 3 on the host
-- Uses standard `venv` module for virtual environment
-- Uses internal `pip` for virtual environment
+- Uses the standard `venv` module for the virtual environment
+- Does not leak packages from the virtual environment
 - Uses `pip-tools` for package dependency resolution
   - Direct dependencies are expressed in the `requirements.in` file
   - All dependencies are locked with the `requirements.txt` file
-- Adds project source directories (for exampe, `./src`) to `sys.path`
+- Adds project source directories (`./src`, `./test`, and `./notebooks`) to
+  `sys.path`
 - Sports Jupyter notebooks alongside
-- Works very well on Windows and with Visual Studio Code too (although
-  Powershell scripts are still TBD)
+- (The concept) works very well on Windows and with Visual Studio Code too
+  (although Powershell scripts are still TBD)
 
 ## Key scripts
 
@@ -22,10 +23,10 @@ This is a skeleton for Python project.  For my personal reference mostly.
   environment.
 - `sh-venv.sh [arg ...]`: Spawn a sub-shell within the virtual environment.
   The arguments, if any, are passed on to the `$SHELL` command.
-- `run-nb.sh`: Start a Jupyter notebook server. Needs to be run within the
-  virtual environment.
-- `clean-nbs.sh`: Clean cell output from the tracked Jupyter notebooks. Needs
-  to be run wihitn the virtual environment.
+- `run-nb.sh`: Start a Jupyter notebook server. **Note:** needs to be run
+  within the virtual environment.
+- `clean-nbs.sh`: Clean cell output from the tracked Jupyter
+  notebooks. **Note:** needs to be run within the virtual environment.
 
 ## Getting started
 
