@@ -1,6 +1,6 @@
 # Not entirely bad Python project
 
-This is a skeleton for Python project.  For my personal reference mostly.
+This is a skeleton for a Python project.  For my personal reference mostly.
 
 ## Features
 
@@ -31,41 +31,41 @@ This is a skeleton for Python project.  For my personal reference mostly.
 ## Getting started
 
 Create and initialize a Python virtual environment for the project.  Among
-other things this install `pip` and `pip-tools` into the environment:
+other things this will install `pip` and `pip-tools` into the environment:
 
 ```console
 $ scripts/mk-venv.sh
 ```
 
-Check that it works:
+Check that the virtual environment works:
 
 ```console
 $ scripts/with-venv.sh which pip
 /path/to/project/virtualenv/bin/pip
 ```
 
-Open a subshell with the virtual environment activated:
+Open a sub-shell with the virtual environment activated:
 
 ```console
 $ scripts/sh-venv.sh
 ```
 
-You can check that the virtual environment is activated:
+You can check that the virtual environment is activated and still works:
 
 ```console
 $ which pip
 /path/to/project/virtualenv/bin/pip
 ```
 
-Compile dependencies (although there is no need as up-to-date
-`requirements.txt` is already checked in to the repository):
+Compile the dependencies requirements. (Although there is no need to this as
+the `requirements.txt` should already be up-to-date):
 
 ```console
 $ pip-compile
 ```
 
-Sync the dependencies installed the virtual environment with the
-`requirements.txt` file:
+Install the dependencies missing from the virtual environment (and uninstall
+the redundant ones, if any):
 
 ```console
 $ pip-sync
