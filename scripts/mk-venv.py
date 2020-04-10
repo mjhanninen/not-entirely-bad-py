@@ -13,6 +13,7 @@ Create project virtual environment
   - `$PROJECT/test`
 """
 
+import os
 from pathlib import Path
 import subprocess
 import venv
@@ -27,11 +28,23 @@ def resolve_site_packages(path: Path):
                 if res is not None:
                     return res
 
-def run_pip(context, *pip_args):
-    bin_path = Path(context.bin_path)
-    args = [bin_path / "pip"]
-    args.extend(pip_args)
-    subprocess.call(args)
+def run_venv(context, cmd, *args):
+    env = dict(os.environ)
+    env["VIRTUAL_ENV"] = context.env_dir
+    if env.get("PATH"):
+        env["PATH"] = context.bin_path + os.pathsep + env["PATH"]
+    else:
+        env["PATH"] = context.bin_path
+    cmdline = [cmd]
+    cmdline.extend(args)
+    subprocess.call(cmdline, env=env)
+
+def run_pip(context, *args):
+    if os.name == "nt":
+        py_exe = "py"
+    else:
+        py_exe = "python3"
+    run_venv(context, py_exe, "-m", "pip", *args)
 
 def write_project_pth_file(env_dir: Path, site_packages_dir: Path):
     n_levels = len(site_packages_dir.relative_to(env_dir).parts) + 1
@@ -62,7 +75,9 @@ class ProjectEnvBuilder(venv.EnvBuilder):
         env_dir = Path(context.env_dir)
         site_packages_dir = resolve_site_packages(env_dir)
         write_project_pth_file(env_dir, site_packages_dir)
-        run_pip(context, "install", "--upgrade", "pip", "pip-tools")
+        bin_dir = Path(context.bin_path)
+        run_pip(context, "install", "--upgrade", "pip")
+        run_pip(context, "install", "pip-tools")
 
 if __name__ == "__main__":
     ProjectEnvBuilder().create("virtualenv")
