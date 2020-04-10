@@ -18,7 +18,7 @@ This is a skeleton for a Python project.  For my personal reference mostly.
 
 ## Key scripts
 
-- `mk-venv.sh`: Create and initialize the virtual environment.
+- `mk-venv.py`: Create and initialize the virtual environment.
 - `with-venv.sh command [arg ...]`: Execute `command` within the virtual
   environment.
 - `sh-venv.sh [arg ...]`: Spawn a sub-shell within the virtual environment.
@@ -34,7 +34,7 @@ Create and initialize a Python virtual environment for the project.  Among
 other things this will install `pip` and `pip-tools` into the environment:
 
 ```console
-$ scripts/mk-venv.sh
+$ scripts/mk-venv.py
 ```
 
 Check that the virtual environment works:
