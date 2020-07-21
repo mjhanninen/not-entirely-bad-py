@@ -30,6 +30,12 @@ This is a skeleton for a Python project.  For my personal reference mostly.
 
 ## Getting started
 
+Copy the scripts into your project:
+
+```console
+$ curl -sLo - https://github.com/mjhanninen/not-entirely-bad-py/archive/v0.1.tar.gz | tar -xz --strip-components=1 --wildcards '*/scripts'
+```
+
 Create and initialize a Python virtual environment for the project.  Among
 other things this will install `pip` and `pip-tools` into the environment:
 
