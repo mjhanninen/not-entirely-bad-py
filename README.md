@@ -33,7 +33,7 @@ This is a skeleton for a Python project.  For my personal reference mostly.
 Copy the scripts into your project:
 
 ```console
-$ curl -sLo - https://github.com/mjhanninen/not-entirely-bad-py/archive/v0.1.tar.gz | tar -xz --strip-components=1 --wildcards '*/scripts'
+$ curl -sLo - https://github.com/mjhanninen/not-entirely-bad-py/archive/v0.1.tar.gz | tar -xz --strip-components=1 --wildcards '*/scripts' '*/.gitignore'
 ```
 
 Create and initialize a Python virtual environment for the project.  Among
